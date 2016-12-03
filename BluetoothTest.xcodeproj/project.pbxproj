@@ -13,7 +13,6 @@
 		D5A485681B48CDD2005A8973 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5A485661B48CDD2005A8973 /* Main.storyboard */; };
 		D5A4856A1B48CDD2005A8973 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5A485691B48CDD2005A8973 /* Images.xcassets */; };
 		D5A4856D1B48CDD2005A8973 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5A4856B1B48CDD2005A8973 /* LaunchScreen.xib */; };
-		D5A485791B48CDD2005A8973 /* BluetoothTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A485781B48CDD2005A8973 /* BluetoothTestTests.m */; };
 		D5A485841B48CEE0005A8973 /* AdvertiseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A485831B48CEE0005A8973 /* AdvertiseViewController.m */; };
 		D5A485871B48CF13005A8973 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A485861B48CF13005A8973 /* ScanViewController.m */; };
 		D5A4858A1B48CF45005A8973 /* Advertiser.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A485891B48CF45005A8973 /* Advertiser.m */; };
@@ -25,16 +24,6 @@
 		D5E19F861D6C196A0062D299 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5E19F851D6C196A0062D299 /* Security.framework */; };
 		D5E19F881D6C196E0062D299 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5E19F871D6C196E0062D299 /* Foundation.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		D5A485731B48CDD2005A8973 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D5A485511B48CDD2005A8973 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D5A485581B48CDD2005A8973;
-			remoteInfo = BluetoothTest;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		D5EAC55F1D55B0850092BAFC /* Embed Watch Content */ = {
@@ -70,9 +59,6 @@
 		D5A485671B48CDD2005A8973 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D5A485691B48CDD2005A8973 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D5A4856C1B48CDD2005A8973 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		D5A485721B48CDD2005A8973 /* BluetoothTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluetoothTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5A485771B48CDD2005A8973 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D5A485781B48CDD2005A8973 /* BluetoothTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BluetoothTestTests.m; sourceTree = "<group>"; };
 		D5A485821B48CEE0005A8973 /* AdvertiseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertiseViewController.h; sourceTree = "<group>"; };
 		D5A485831B48CEE0005A8973 /* AdvertiseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertiseViewController.m; sourceTree = "<group>"; };
 		D5A485851B48CF13005A8973 /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
@@ -104,13 +90,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D5A4856F1B48CDD2005A8973 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -118,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				D5A4855B1B48CDD2005A8973 /* BluetoothTest */,
-				D5A485751B48CDD2005A8973 /* BluetoothTestTests */,
 				D5A4855A1B48CDD2005A8973 /* Products */,
 				D5EAC5601D55B10E0092BAFC /* Frameworks */,
 			);
@@ -128,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				D5A485591B48CDD2005A8973 /* BluetoothTest.app */,
-				D5A485721B48CDD2005A8973 /* BluetoothTestTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,23 +139,6 @@
 			children = (
 				D5A4855D1B48CDD2005A8973 /* Info.plist */,
 				D5A4855E1B48CDD2005A8973 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		D5A485751B48CDD2005A8973 /* BluetoothTestTests */ = {
-			isa = PBXGroup;
-			children = (
-				D5A485781B48CDD2005A8973 /* BluetoothTestTests.m */,
-				D5A485761B48CDD2005A8973 /* Supporting Files */,
-			);
-			path = BluetoothTestTests;
-			sourceTree = "<group>";
-		};
-		D5A485761B48CDD2005A8973 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D5A485771B48CDD2005A8973 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -218,24 +178,6 @@
 			productReference = D5A485591B48CDD2005A8973 /* BluetoothTest.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D5A485711B48CDD2005A8973 /* BluetoothTestTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D5A4857F1B48CDD2005A8973 /* Build configuration list for PBXNativeTarget "BluetoothTestTests" */;
-			buildPhases = (
-				D5A4856E1B48CDD2005A8973 /* Sources */,
-				D5A4856F1B48CDD2005A8973 /* Frameworks */,
-				D5A485701B48CDD2005A8973 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D5A485741B48CDD2005A8973 /* PBXTargetDependency */,
-			);
-			name = BluetoothTestTests;
-			productName = BluetoothTestTests;
-			productReference = D5A485721B48CDD2005A8973 /* BluetoothTestTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -254,11 +196,6 @@
 							};
 						};
 					};
-					D5A485711B48CDD2005A8973 = {
-						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = ZKREFD9LS9;
-						TestTargetID = D5A485581B48CDD2005A8973;
-					};
 				};
 			};
 			buildConfigurationList = D5A485541B48CDD2005A8973 /* Build configuration list for PBXProject "BluetoothTest" */;
@@ -275,7 +212,6 @@
 			projectRoot = "";
 			targets = (
 				D5A485581B48CDD2005A8973 /* BluetoothTest */,
-				D5A485711B48CDD2005A8973 /* BluetoothTestTests */,
 			);
 		};
 /* End PBXProject section */
@@ -288,13 +224,6 @@
 				D5A485681B48CDD2005A8973 /* Main.storyboard in Resources */,
 				D5A4856D1B48CDD2005A8973 /* LaunchScreen.xib in Resources */,
 				D5A4856A1B48CDD2005A8973 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D5A485701B48CDD2005A8973 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,23 +244,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D5A4856E1B48CDD2005A8973 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D5A485791B48CDD2005A8973 /* BluetoothTestTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D5A485741B48CDD2005A8973 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D5A485581B48CDD2005A8973 /* BluetoothTest */;
-			targetProxy = D5A485731B48CDD2005A8973 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D5A485661B48CDD2005A8973 /* Main.storyboard */ = {
@@ -478,44 +391,6 @@
 			};
 			name = Release;
 		};
-		D5A485801B48CDD2005A8973 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = ZKREFD9LS9;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = BluetoothTestTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bluetoothtest.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluetoothTest.app/BluetoothTest";
-			};
-			name = Debug;
-		};
-		D5A485811B48CDD2005A8973 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = ZKREFD9LS9;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = BluetoothTestTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bluetoothtest.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BluetoothTest.app/BluetoothTest";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -533,15 +408,6 @@
 			buildConfigurations = (
 				D5A4857D1B48CDD2005A8973 /* Debug */,
 				D5A4857E1B48CDD2005A8973 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D5A4857F1B48CDD2005A8973 /* Build configuration list for PBXNativeTarget "BluetoothTestTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D5A485801B48CDD2005A8973 /* Debug */,
-				D5A485811B48CDD2005A8973 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
