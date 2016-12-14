@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "699BBED468DF687CB71AAE8A403ACD2284ADB8E8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A415949F027D782CBD6CFA24DF8EEC6EBDA7F48F" : 9223372036854775807,
+    "699BBED468DF687CB71AAE8A403ACD2284ADB8E8" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6383B5BA-B244-46D8-8F01-318977028AE5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A415949F027D782CBD6CFA24DF8EEC6EBDA7F48F" : "..",
+    "699BBED468DF687CB71AAE8A403ACD2284ADB8E8" : "BluetoothTest\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "BluetoothTest",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "BluetoothTest.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/felix-dumit\/BluetoothTest.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "699BBED468DF687CB71AAE8A403ACD2284ADB8E8"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/daviddellasanta\/umwho-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A415949F027D782CBD6CFA24DF8EEC6EBDA7F48F"
+    }
+  ]
+}
