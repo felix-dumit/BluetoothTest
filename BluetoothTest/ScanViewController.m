@@ -34,17 +34,17 @@
 }
 
 -(void)startScan {
-    [Scanner startScanning];
+    [[Scanner sharedScanner] startScanning];
     [self updateLabel];
 }
 
 -(void)stopScan {
-    [Scanner stopScanning];
+    [[Scanner sharedScanner] startScanning];
     [self updateLabel];
 }
 
 -(void)updateLabel {
-    self.resultLabel.text = [Scanner foundPeripherals].description;
+    self.resultLabel.text = [[Scanner sharedScanner] foundPeripherals].description;
 }
 
 /*
