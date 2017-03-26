@@ -18,6 +18,11 @@
 
 @implementation ScanViewController
 
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLabel) name:@"FOUNDPERIPHERAL" object:nil];
+}
+
 - (IBAction)buttonSelected:(UIButton*)sender {
     
     sender.selected = !sender.selected;

@@ -11,9 +11,11 @@
 
 @interface Scanner : NSObject
 
-+(void)startScanning;
-+(void)stopScanning;
++ (Scanner *)sharedScanner;
 
-+(NSArray*)foundPeripherals;
+-(void)startScanning;
+-(void)stopScanning;
+
+-(NSArray*)foundPeripherals;
 
 @end

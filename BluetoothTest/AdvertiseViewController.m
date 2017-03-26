@@ -28,9 +28,9 @@
 - (IBAction)startSelected:(UIButton*)sender {
     sender.selected = !sender.selected;
     if(sender.selected){
-        [Advertiser startAdvertising];
+        [[Advertiser sharedAdvertiser] startAdvertising];
     } else {
-        [Advertiser stopAdvertising];
+        [[Advertiser sharedAdvertiser] stopAdvertising];
     }
 }
 

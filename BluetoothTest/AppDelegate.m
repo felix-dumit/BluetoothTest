@@ -45,33 +45,4 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
--(void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void (^)(NSDictionary *))reply {
-    
-    //otherwise reply block is not called on watch extension
-    __block UIBackgroundTaskIdentifier backgroundTask;
-    backgroundTask = [application beginBackgroundTaskWithExpirationHandler:^{
-        reply(nil);
-        [application endBackgroundTask:backgroundTask];
-    }];
-    
-    
-    if([userInfo[@"op"] isEqualToString:@"start"]){
-        [Scanner startScanning];
-        reply(@{@"result": @"ok"});
-    }
-    else if([userInfo[@"op"] isEqualToString:@"stop"]){
-        NSMutableArray* array = [NSMutableArray array];
-        for(CBPeripheral* peripheral in [Scanner foundPeripherals]){
-            [array addObject:peripheral.name];
-        }
-        reply(@{@"result":array});
-        [Scanner stopScanning];
-    } else {
-        reply(@{@"result": @"notfound"});
-    }
-    
-    [application endBackgroundTask:backgroundTask];
-    
-}
-
 @end

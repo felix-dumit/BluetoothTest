@@ -10,7 +10,8 @@
 
 @interface Advertiser : NSObject
 
-+(void)startAdvertising;
-+(void)stopAdvertising;
-
++(Advertiser *)sharedAdvertiser;
+-(void)startAdvertising;
+-(void)stopAdvertising;
+-(void)setup;
 @end
