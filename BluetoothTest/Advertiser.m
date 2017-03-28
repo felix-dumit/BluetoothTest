@@ -8,6 +8,7 @@
 
 #import "Advertiser.h"
 #import <CoreBluetooth/CoreBluetooth.h>
+#import <UIKit/UIDevice.h>
 #import "Constants.h"
 
 @interface Advertiser ()<CBPeripheralManagerDelegate>
@@ -15,7 +16,6 @@
 @property (strong, nonatomic) CBMutableCharacteristic* transferCharacteristic;
 @property (strong, nonatomic) CBMutableService* transferService;
 @property (strong, nonatomic) CBPeripheralManager* peripheralManager;
-@property (strong, nonatomic) NSDateFormatter* dateFormatter;
 @property BOOL addedService;
 @property BOOL wantsToAdvertise;
 
@@ -23,10 +23,14 @@
 
 @implementation Advertiser
 
+
++(void)initialize {
+    [[self sharedAdvertiser] setup];
+}
 +(void)load {
     if([CBPeripheralManager authorizationStatus] >= CBPeripheralManagerAuthorizationStatusAuthorized) {
 #warning WITHOUT THIS IT WONT WORK IN THE BACKGROUND ?!?!!
-        [[self sharedAdvertiser] setup];
+//        [[self sharedAdvertiser] setup];
     }
 }
 
@@ -38,22 +42,14 @@
     return sharedInstance;
 }
 
--(instancetype)init {
-    if(self = [super init]) {
-        self.dateFormatter = [[NSDateFormatter alloc] init];
-        self.dateFormatter.timeStyle = NSDateFormatterLongStyle;
-    }
-    return self;
-}
-
 -(void)setup {
     [self peripheralManager];
-    [self transferService];
+    //[self transferService];
 }
 
 -(CBPeripheralManager *)peripheralManager {
     if(!_peripheralManager) {
-        _peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:nil queue:nil];
+        _peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil];
     }
     return _peripheralManager;
 }
@@ -67,7 +63,7 @@
                                                                         permissions:CBAttributePermissionsReadable | CBAttributePermissionsWriteable];
         
         // Then the service
-        self.transferService = [[CBMutableService alloc] initWithType:[CBUUID UUIDWithString:TRANSFER_SERVICE_UUID]
+        self.transferService = [[CBMutableService alloc] initWithType:[CBUUID UUIDWithString:SERVICE_UUID]
                                                               primary:YES];
         
         // Add the characteristic to the service
@@ -79,6 +75,8 @@
 -(void)stopAdvertising {
     self.wantsToAdvertise = NO;
     [self.peripheralManager stopAdvertising];
+    //[self.peripheralManager removeAllServices];
+//    self.addedService = NO;
 }
 
 -(void)startAdvertising {
@@ -87,12 +85,22 @@
         if(!self.addedService) {
             [self.peripheralManager addService:self.transferService];
         } else {
-            [self.peripheralManager startAdvertising:@{
-                                                       CBAdvertisementDataServiceUUIDsKey :
-                                                           @[[CBUUID UUIDWithString:TRANSFER_SERVICE_UUID]]
-                                                       }];
+            [self _advertiseService];
         }
     }
+}
+
+-(void)_advertiseService {
+    [self.peripheralManager startAdvertising:@{
+                                               CBAdvertisementDataServiceUUIDsKey :
+                                                   @[self.transferService.UUID],
+                                               CBAdvertisementDataLocalNameKey: [UIDevice currentDevice].name ?: @"nil"
+                                               }];
+    
+}
+
+-(BOOL)isAdvertising {
+    return self.peripheralManager.isAdvertising;
 }
 
 #pragma mark - Peripheral Methods
@@ -115,17 +123,17 @@
     }
 }
 
-
-
 -(void)peripheralManager:(CBPeripheralManager *)peripheral didAddService:(CBService *)service error:(NSError *)error {
     if(error) {
         NSLog(@"Error adding service: %@", error);
     } else {
+        NSLog(@"Peripheral added service");
         self.addedService = YES;
         if(_wantsToAdvertise && !self.peripheralManager.isAdvertising) {
             [self startAdvertising];
         }
     }
 }
+
 
 @end

@@ -12,7 +12,8 @@
 
 @interface ScanViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
+@property (weak, nonatomic) IBOutlet UITextView *resultTextView;
+@property (weak, nonatomic) IBOutlet UIButton *button;
 
 @end
 
@@ -20,7 +21,18 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.button.selected = [Scanner sharedScanner].isScanning;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLabel) name:@"FOUNDPERIPHERAL" object:nil];
+
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (IBAction)buttonSelected:(UIButton*)sender {
@@ -39,12 +51,12 @@
 }
 
 -(void)stopScan {
-    [[Scanner sharedScanner] startScanning];
+    [[Scanner sharedScanner] stopScanning];
     [self updateLabel];
 }
 
 -(void)updateLabel {
-    self.resultLabel.text = [[Scanner sharedScanner] foundPeripherals].description;
+    self.resultTextView.text = [[Scanner sharedScanner] foundPeripherals].description;
 }
 
 /*

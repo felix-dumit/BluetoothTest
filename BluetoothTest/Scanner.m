@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) CBCentralManager *centralManager;
 @property (strong, nonatomic) NSMutableArray *peripherals;
+@property BOOL wantsToScan;
+@property NSTimer* resetTimer;
 
 @end
 
@@ -49,23 +51,42 @@
 {
     [self clearPeripherals];
     NSLog(@"Started scanning");
-    [self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:TRANSFER_SERVICE_UUID]] options:@{ CBCentralManagerScanOptionAllowDuplicatesKey: @NO }];
+    CBUUID* uuid1 = [CBUUID UUIDWithString:SERVICE_UUID];
+    CBUUID* uuid2 = [CBUUID UUIDWithString:OTHER_SERVICE_UUID];
+    [self.centralManager scanForPeripheralsWithServices:@[uuid1]
+                                                options:@{CBCentralManagerScanOptionAllowDuplicatesKey: @YES}];
+    _wantsToScan = YES;
+    self.resetTimer = [NSTimer scheduledTimerWithTimeInterval:2
+                                              target:self
+                                            selector:@selector(clearPeripherals)
+                                            userInfo:Nil
+                                             repeats:YES];
 }
 
 - (void)stopScanning
 {
+    NSLog(@"Stopped scanning");
     [self.centralManager stopScan];
+    _wantsToScan = NO;
+    [self.resetTimer invalidate];
+    self.resetTimer = nil;
+}
+
+-(BOOL)isScanning
+{
+    return self.centralManager.isScanning;
 }
 
 - (void)clearPeripherals
 {
     [self.peripherals removeAllObjects];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"FOUNDPERIPHERAL" object:nil];
 }
 
 #pragma mark - CBCentralManagerDelegate
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
-    if (central.state == CBCentralManagerStatePoweredOn && !central.isScanning) {
+    if (central.state == CBCentralManagerStatePoweredOn && !central.isScanning && _wantsToScan) {
         [self startScanning];
     }
 }

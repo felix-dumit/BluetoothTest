@@ -17,5 +17,6 @@
 -(void)stopScanning;
 
 -(NSArray*)foundPeripherals;
+-(BOOL)isScanning;
 
 @end

@@ -13,5 +13,5 @@
 +(Advertiser *)sharedAdvertiser;
 -(void)startAdvertising;
 -(void)stopAdvertising;
--(void)setup;
+-(BOOL)isAdvertising;
 @end

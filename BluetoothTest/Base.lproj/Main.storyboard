@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="d9f-so-Fnk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="d9f-so-Fnk">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -77,6 +76,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="button" destination="B7v-1G-hs7" id="aQd-W0-JAC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mgM-8M-rYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,25 +106,26 @@
                                     <action selector="buttonSelected:" destination="PK0-2T-6JG" eventType="touchUpInside" id="Tse-Eq-2qu"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Result" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMt-r5-N4v">
-                                <rect key="frame" x="38" y="136" width="311" height="481"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LIg-rZ-ae9">
+                                <rect key="frame" x="38" y="131" width="311" height="526"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Faf-6K-xQI" firstAttribute="top" secondItem="AMt-r5-N4v" secondAttribute="bottom" constant="50" id="1DO-wd-UHZ"/>
-                            <constraint firstItem="AMt-r5-N4v" firstAttribute="top" secondItem="ACP-Ao-ehk" secondAttribute="bottom" constant="15" id="AFM-q6-UCq"/>
                             <constraint firstItem="ACP-Ao-ehk" firstAttribute="top" secondItem="BMo-ta-UVL" secondAttribute="bottom" constant="27" id="DHJ-uc-qpH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LIg-rZ-ae9" secondAttribute="trailing" constant="10" id="FWn-Mx-LDK"/>
                             <constraint firstItem="ACP-Ao-ehk" firstAttribute="leading" secondItem="nwh-mV-uPy" secondAttribute="leadingMargin" constant="22" id="O95-d0-qVh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="AMt-r5-N4v" secondAttribute="trailing" constant="10" id="Z4y-1d-uAE"/>
-                            <constraint firstItem="AMt-r5-N4v" firstAttribute="leading" secondItem="ACP-Ao-ehk" secondAttribute="leading" id="gjk-om-qjU"/>
+                            <constraint firstItem="LIg-rZ-ae9" firstAttribute="top" secondItem="ACP-Ao-ehk" secondAttribute="bottom" constant="10" id="dpl-C2-ly8"/>
+                            <constraint firstItem="LIg-rZ-ae9" firstAttribute="leading" secondItem="ACP-Ao-ehk" secondAttribute="leading" id="g77-oU-Ta5"/>
+                            <constraint firstItem="Faf-6K-xQI" firstAttribute="top" secondItem="LIg-rZ-ae9" secondAttribute="bottom" constant="10" id="gCD-Iy-JfA"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="resultLabel" destination="AMt-r5-N4v" id="a5q-go-Qbz"/>
+                        <outlet property="button" destination="ACP-Ao-ehk" id="mg3-TZ-Jis"/>
+                        <outlet property="resultTextView" destination="LIg-rZ-ae9" id="wUi-MP-Oi9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKe-DX-XUO" userLabel="First Responder" sceneMemberID="firstResponder"/>
