@@ -23,14 +23,10 @@
 
 @implementation Advertiser
 
-
-+(void)initialize {
-    [[self sharedAdvertiser] setup];
-}
 +(void)load {
     if([CBPeripheralManager authorizationStatus] >= CBPeripheralManagerAuthorizationStatusAuthorized) {
 #warning WITHOUT THIS IT WONT WORK IN THE BACKGROUND ?!?!!
-//        [[self sharedAdvertiser] setup];
+        [[self sharedAdvertiser] setup];
     }
 }
 
@@ -44,7 +40,7 @@
 
 -(void)setup {
     [self peripheralManager];
-    //[self transferService];
+    [self transferService];
 }
 
 -(CBPeripheralManager *)peripheralManager {
@@ -84,7 +80,8 @@
     if(self.peripheralManager.state >= CBPeripheralManagerStatePoweredOn) {
         if(!self.addedService) {
             [self.peripheralManager addService:self.transferService];
-        } else {
+        }
+        else {
             [self _advertiseService];
         }
     }
